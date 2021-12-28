@@ -31,7 +31,7 @@ class Mai_Boola_Register {
 			'priority'   => 10,
 			'menu_order' => 120,
 			'before'     => $this->get_before(),
-			'after'      => '</div>',
+			'after'      => $this->get_after(),
 			'condition'  => function() {
 				// TODO: Add post_type setting.
 				$post_types = [ 'post' ];
@@ -43,7 +43,7 @@ class Mai_Boola_Register {
 	}
 
 	function get_before() {
-		$html = sprintf( '<div class="maiboola%s">', maiboola_get_field( 'maiboola_excerpt' ) ? ' maiboola-excerpt' : '' );
+		$html = sprintf( '<div id="maiboola" class="maiboola%s">', maiboola_get_field( 'maiboola_excerpt' ) ? ' maiboola-excerpt' : '' );
 
 		if ( maiboola_is_excerpt() ) {
 			// CSS.
@@ -51,10 +51,22 @@ class Mai_Boola_Register {
 			$html .= sprintf( '<link rel="stylesheet" href="%s" />', $href );
 
 			// Toggle button.
-			// $html .= sprintf( '<label for="maiboola-toggle">'<input type="checkbox" name="maiboola-toggle" />%s</label>', __( 'Continue Reading', 'mai-boola' ) );
-			$html .= sprintf( '<input type="checkbox" name="maiboola-toggle" data-label="%s" />', __( 'Continue Reading', 'mai-boola' ) );
-			// $html .= sprintf( '<label for="maiboola-toggle">%s</label>', __( 'Continue Reading', 'mai-boola' ) );
+			$html .= sprintf( '<p class="maiboola-toggle-wrap"><button id="maiboola-toggle">%s</button></p>', __( 'Continue Reading', 'mai-boola' ) );
 		}
+
+		return $html;
+	}
+
+	function get_after() {
+		$html = '';
+
+		if ( maiboola_is_excerpt() ) {
+			// JS.
+			$src   = MAI_BOOLA_PLUGIN_URL . 'assets/js/mai-boola.js';
+			$html .= sprintf( '<script src="%s"></script>', $src );
+		}
+
+		$html .= '</div>';
 
 		return $html;
 	}
