@@ -131,12 +131,10 @@ final class Mai_Boola_Plugin {
 		// Includes.
 		foreach ( glob( MAI_BOOLA_INCLUDES_DIR . '*.php' ) as $file ) { include $file; }
 		// Classes.
-		// Register.
-		new Mai_Boola_Register;
-		// Display.
-		add_action( 'plugins_loaded', function() {
-			new Mai_Boola_Display;
-		});
+		// add_action( 'plugins_loaded', function() {
+			new Mai_Boola_Fields;
+			new Mai_Boola;
+		// });
 	}
 
 	/**

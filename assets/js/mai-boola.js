@@ -2,13 +2,15 @@
 	const toggle = document.querySelector( '#maiboola-toggle' );
 
 	toggle.addEventListener( 'click', event => {
-		var maiBoola = event.target.closest( '.maiboola' );
+		const entryContent = document.querySelector( '.entry-content-single' );
+		const maiBoola     = event.target.closest( '.maiboola' );
 
-		if ( ! maiBoola ) {
-			return;
+		if ( entryContent ) {
+			entryContent.classList.add( 'maiboola-content-full' );
 		}
 
-		maiBoola.classList.remove( 'maiboola-excerpt' );
-		maiBoola.classList.add( 'maiboola-excerpt-hidden' );
+		if ( maiBoola ) {
+			maiBoola.classList.add( 'maiboola-conceal-hidden' );
+		}
 	});
 } )();
