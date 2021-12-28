@@ -37,10 +37,13 @@ function maiboola_is_excerpt() {
 	$id = maiboola_get_id();
 
 	if ( ! $id ) {
-		return false;
+		$bool = false;
+		return $bool;
 	}
 
-	return (bool) maiboola_get_field( 'maiboola_excerpt' );
+	$bool = (bool) maiboola_get_field( 'maiboola_excerpt' );
+
+	return $bool;
 }
 
 function maiboola_get_field( $key ) {
