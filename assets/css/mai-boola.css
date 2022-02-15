@@ -23,6 +23,9 @@
 
 	.js .maiboola-content-mobile {
 		max-height: var(--maiboola-content-max-height, unset);
+	}
+
+	.js .maiboola-content-mobile.maiboola-content-hidden {
 		overflow: hidden;
 	}
 
@@ -36,6 +39,9 @@
 
 	.js .maiboola-content-tablet {
 		max-height: var(--maiboola-content-max-height, unset);
+	}
+
+	.js .maiboola-content-tablet.maiboola-content-hidden {
 		overflow: hidden;
 	}
 
@@ -49,6 +55,9 @@
 
 	.js .maiboola-content-desktop {
 		max-height: var(--maiboola-content-max-height, unset);
+	}
+
+	.js .maiboola-content-desktop.maiboola-content-hidden {
 		overflow: hidden;
 	}
 

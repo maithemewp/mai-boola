@@ -73,6 +73,8 @@ class Mai_Boola {
 		$conceal = $this->get_conceal();
 
 		if ( $conceal ) {
+			$attributes['class'] .= ' maiboola-content-hidden';
+
 			if ( in_array( 'mobile', $conceal ) ) {
 				$attributes['class'] .= ' maiboola-content-mobile';
 			}

@@ -7,6 +7,7 @@
 
 		if ( entryContent ) {
 			entryContent.classList.add( 'maiboola-content-full' );
+			entryContent.classList.remove( 'maiboola-content-hidden' );
 		}
 
 		if ( maiBoola ) {
